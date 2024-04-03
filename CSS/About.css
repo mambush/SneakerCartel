@@ -162,7 +162,6 @@ figcaption{
       margin: 15px auto; /* Center the cards */
     }
   }
-
 .home-sci{
     align-items: center;
     width: 80px;
@@ -190,7 +189,7 @@ figcaption{
 .home-sci a:hover{
     color: var(--bg-color);
 }
-
+ 
 .home-sci a::before{
     content: '';
     position: absolute;
