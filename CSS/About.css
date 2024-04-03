@@ -126,7 +126,7 @@ figcaption{
   margin: 0px;
 }
 
-.card .info p {
+.card .info p  {
   letter-spacing: 1px;
   font-size: 15px;
   margin-top: 8px;
@@ -162,17 +162,17 @@ figcaption{
       margin: 15px auto; /* Center the cards */
     }
   }
-.home-sci{
+
+  .social {
     align-items: center;
-    width: 80px;
-    height: 80px;
+   
 }
 
-.home-sci a{
+.social a{
     position: relative;
     display: inline-flex;
     justify-content: center;
-    border-spacing: 1rem;
+    /* border-spacing: 1rem; */ /* Remove this line */
     align-items: center;
     width: 50px;
     height: 50px;
@@ -186,24 +186,24 @@ figcaption{
     transition: 0.4s;
 }
 
-.home-sci a:hover{
+.social a:hover {
     color: var(--bg-color);
 }
- 
-.home-sci a::before{
+
+.social a::before {
     content: '';
     position: absolute;
     top: 0;
-    left:0;
-    width: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
     background: #AA7D49;
     z-index: -1;
     transition: .4s;
 }
 
-.home-sci a:hover::before{
-    width: 100%;
+.social a:hover::before {
+    width: 0;
 }
 
 #back-to-top > button{
