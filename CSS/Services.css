@@ -61,6 +61,8 @@ nav a:hover {
     border-color: #AA7D49;
     border-style: solid;
     padding: 10px;
+    height: 11.5rem;
+    width: 18rem;
 }
 
 .home-sci{
