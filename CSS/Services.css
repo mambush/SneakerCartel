@@ -47,9 +47,9 @@ nav a:hover {
     text-decoration: underline;
 }
 
-.video {
+/* .video {
     animation: slideInFromTop 3s ease forwards;
-}
+} */
 
 .video img {
     width: 400px;
@@ -201,6 +201,7 @@ nav a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    color: white;
 }
   
 .info h2,
@@ -231,7 +232,7 @@ nav a:hover {
     transform: translateY(0);
 }
 
-@keyframes slideInFromTop {
+/* @keyframes slideInFromTop {
     from {
         transform: translateY(-100%);
         opacity: 0;
@@ -240,4 +241,4 @@ nav a:hover {
         transform: translateY(0);
         opacity: 1;
     }
-}
+} */
