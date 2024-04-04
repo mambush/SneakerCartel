@@ -51,15 +51,38 @@
             <br>
             <select name="shoe_type" id="shoe_type" required>
                 <option value="">Select...</option>
-                <option value="Canvas">Canvas</option>
-                <option value="Knit">Knit</option>
-                <option value="Leather">Leather</option>
-                <option value="Mesh">Mesh</option>
-                <option value="Rubber">Rubber</option>
-                <option value="Suede">Suede</option>
-                <option value="Synthetic">Synthetic</option>
+                <option value="100">Canvas (R100)</option>
+                <option value="120">Knit (R120)</option>
+                <option value="150">Leather(R150)</option>
+                <option value="80">Mesh(R80)</option>
+                <option value="60">Rubber(R60)</option>
+                <option value="180">Suede(R180)</option>
+                <option value="80">Synthetic(R80)</option>
             </select>
+            <label for="serviceList">Type of Service:</label>
             <br>
+            <select name="serviceList" id="serviceSelect" multiple>
+                <option value="">Select...</option>
+                <option value="50">Deep Cleaning (R50)</option>
+                <option value="100">Stain Removal (R100)</option>
+                <option value="60">Water Proofing (R60)</option>
+              </select>
+            <br>
+            <button onclick="addService()">Add Service</button>
+            <button onclick="removeService()">Remove Service</button>
+          
+            <h2>Selected Services</h2>
+            <ul id="serviceList"></ul>
+
+            <br>
+            <label for="fullCost">Total Cost:</label>
+            <br>
+            <input type="text" id="fullCost" name="fullCost" readonly>
+            <br>
+            <br>
+
+
+          
             <br>
             <label for="dropoff_date">Preferred Drop-off Date:</label>
             <br>
@@ -84,6 +107,7 @@
 
     <footer>
         <p><u>Interact with us and visit our socials:</u></p>
+    
         <br>
         <span class="home-sci">
             <a href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a>
@@ -94,5 +118,69 @@
             &copy; 2024 SneakyKleen. All rights are reserved.
         </p>
     </footer>
+    <script>
+      const services = [];
+      const fullCostInput = document.getElementById('fullCost');
+  
+      function addService() {
+          const serviceSelect = document.getElementById('serviceSelect');
+          const selectedServices = Array.from(serviceSelect.selectedOptions).map(option => ({
+              name: option.text.split(' (')[0],
+              cost: parseInt(option.value),
+              checked: true
+          }));
+  
+          selectedServices.forEach(service => {
+              const index = services.findIndex(s => s.name === service.name);
+              if (index === -1) {
+                  services.push(service);
+              } else {
+                  alert(`${service.name} is already added.`);
+              }
+          });
+  
+          updateServiceList();
+          serviceSelect.selectedIndex = -1; // Clear the selection
+          calculateTotal();
+      }
+  
+      function removeService() {
+          const checkedServices = document.querySelectorAll('input[type="checkbox"]:checked');
+          checkedServices.forEach(service => {
+              const index = services.findIndex(s => s.name === service.nextElementSibling.textContent.trim().split(' (')[0]);
+              if (index !== -1) {
+                  services.splice(index, 1);
+              }
+          });
+          updateServiceList();
+          calculateTotal();
+      }
+  
+      function updateServiceList() {
+          const serviceList = document.getElementById('serviceList');
+          serviceList.innerHTML = '';
+          services.forEach(service => {
+              const li = document.createElement('li');
+              const checkbox = document.createElement('input');
+              checkbox.type = 'checkbox';
+              checkbox.value = service.cost;
+              checkbox.checked = service.checked;
+              checkbox.addEventListener('change', () => service.checked = checkbox.checked);
+              const label = document.createElement('label');
+              label.textContent = `${service.name} (R${service.cost})`;
+              li.appendChild(checkbox);
+              li.appendChild(label);
+              serviceList.appendChild(li);
+          });
+      }
+  
+      function calculateTotal() {
+          const shoeTypeCost = parseInt(document.getElementById('shoe_type').value) || 0;
+          const serviceCosts = services.filter(service => service.checked).map(service => service.cost);
+          const totalCost = shoeTypeCost + serviceCosts.reduce((sum, cost) => sum + cost, 0);
+          fullCostInput.value = totalCost ? `R${totalCost}` : ''; // Update the value of the input field
+      }
+  </script>
+  
 </body>
 </html>
