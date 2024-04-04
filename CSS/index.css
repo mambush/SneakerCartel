@@ -1,12 +1,12 @@
 body {
     text-align: center;
-    background-color: #FFDBA2; 
-    color: #341300; 
+    background-color: #FFDBA2;
+    color: #341300;
 }
 
 .head {
     position: relative;
-    margin:0;
+    margin: 0;
     font-size: 3rem;
     font-weight: 900;
     color: #461b03;
@@ -14,7 +14,7 @@ body {
     overflow: hidden;
 }
 
-.head span{
+.head span {
     color: #461b03;
 }
 
@@ -33,13 +33,13 @@ body {
 }
 
 .header {
-    background-color: #AA7D49; 
+    background-color: #AA7D49;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 nav a {
-    color: #FFD59D; 
+    color: #FFD59D;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -52,13 +52,13 @@ nav a:hover {
     font-size: large;
 }
 
-.home-sci{
+.home-sci {
     align-items: center;
     width: 80px;
     height: 80px;
 }
 
-.home-sci a{
+.home-sci a {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -76,15 +76,15 @@ nav a:hover {
     transition: 0.4s;
 }
 
-.home-sci a:hover{
+.home-sci a:hover {
     color: var(--bg-color);
 }
- 
-.home-sci a::before{
+
+.home-sci a::before {
     content: '';
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     width: 0;
     height: 100%;
     background: #AA7D49;
@@ -92,11 +92,11 @@ nav a:hover {
     transition: .4s;
 }
 
-.home-sci a:hover::before{
+.home-sci a:hover::before {
     width: 100%;
 }
 
-#back-to-top > button{
+#back-to-top>button {
     background-color: #82412c;
     border-radius: 50%;
     border: solid 1px #341300;
@@ -104,18 +104,18 @@ nav a:hover {
     height: 50px;
 }
 
-#back-to-top:hover > button {
+#back-to-top:hover>button {
     border: solid 1px #341300;
     background-color: white;
-    
+
 }
 
-#back-to-top > button {
+#back-to-top>button {
     text-decoration: none;
     color: whitesmoke;
 }
 
-#back-to-top:hover > button {
+#back-to-top:hover>button {
     text-decoration: none;
     color: #341300;
 }
@@ -135,52 +135,43 @@ nav a:hover {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
- 
+
 .animated-button:hover {
     background-color: #82412c;
     transform: translateY(-3px);
 }
-  
-.carousel-container {
-  width: 80%; /* Adjust to your desired width */
-  margin: 0 auto; /* Center the container horizontally */
-  overflow: hidden;
-  position: relative;
-}
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
+.carousel-container {
+    width: 49%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
 }
 
 .carousel-slide {
-  flex: 0 0 33.33%; /* Set width for three images per slide */
-  margin-right: 10px;
+    display: flex;
+    width: 500%;
+    height: 500px;
 }
 
-.carousel-slide img {
-  width: 100%;
-  height: auto;
-}
-
-#prevBtn,
-#nextBtn {
-    padding: 10px 20px;
-    background-color: #AA7D49;
-    color: #FFDBA2;
-    border: none;
-    border-radius: 5px;
+#prevBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0, 5;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
 }
 
-#nextBtn:hover {
-    background-color: #82412c;
-    transform: translateY(-3px);
+#nextBtn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0, 5;
+    cursor: pointer;
 }
-
-#prevBtn:hover {
-    background-color: #82412c;
-    transform: translateY(-3px);
-}
-
