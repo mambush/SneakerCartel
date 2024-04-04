@@ -141,48 +141,34 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-.carousel-container {
-    width: 80%;
-    /* Adjust to your desired width */
-    margin: 0 auto;
-    /* Center the container horizontally */
+.carousel-container{
+    width: 49%;
+    margin: auto;
     overflow: hidden;
     position: relative;
 }
-
-.carousel-track {
+.carousel-slide{
     display: flex;
-    transition: transform 0.5s ease;
-}
-
-.carousel-slide {
-    flex: 0 0 33.33%;
-    /* Set width for three images per slide */
-    margin-right: 10px;
-}
-
-.carousel-slide img {
     width: 100%;
-    height: auto;
+    height: 500px;
 }
-
-#prevBtn,
-#nextBtn {
-    padding: 10px 20px;
-    background-color: #AA7D49;
-    color: #FFDBA2;
-    border: none;
-    border-radius: 5px;
+#prevBtn{
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    left: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0,5;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
 }
-
-#nextBtn:hover {
-    background-color: #82412c;
-    transform: translateY(-3px);
-}
-
-#prevBtn:hover {
-    background-color: #82412c;
-    transform: translateY(-3px);
+#nextBtn{
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    right: 5%;
+    font-size: 30px;
+    color: white;
+    opacity: 0,5;
+    cursor: pointer;
 }
