@@ -142,36 +142,47 @@ nav a:hover {
 }
 
 .carousel-container {
-    width: 49%;
+    width: 80%;
+    /* Adjust to your desired width */
     margin: 0 auto;
+    /* Center the container horizontally */
     overflow: hidden;
     position: relative;
 }
 
-.carousel-slide {
+.carousel-track {
     display: flex;
-    width: 500%;
-    height: 500px;
+    transition: transform 0.5s ease;
 }
 
-#prevBtn {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    left: 5%;
-    font-size: 30px;
-    color: white;
-    opacity: 0, 5;
-    cursor: pointer;
+.carousel-slide {
+    flex: 0 0 33.33%;
+    /* Set width for three images per slide */
+    margin-right: 10px;
 }
 
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+}
+
+#prevBtn,
 #nextBtn {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    right: 5%;
-    font-size: 30px;
-    color: white;
-    opacity: 0, 5;
+    padding: 10px 20px;
+    background-color: #AA7D49;
+    color: #FFDBA2;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#nextBtn:hover {
+    background-color: #82412c;
+    transform: translateY(-3px);
+}
+
+#prevBtn:hover {
+    background-color: #82412c;
+    transform: translateY(-3px);
 }

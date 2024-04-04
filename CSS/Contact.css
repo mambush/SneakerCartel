@@ -1,19 +1,20 @@
 body {
     text-align: center;
-    background-color: #FFDBA2; 
-    color: #341300; 
+    background-color: #FFDBA2;
+    color: #341300;
 }
 
 .head {
     position: relative;
-    margin:0;
+    margin: 0;
     font-size: 3rem;
     font-weight: 900;
     color: #461b03;
     z-index: 1s;
     overflow: hidden;
 }
-.head span{
+
+.head span {
     color: #461b03;
 }
 
@@ -32,13 +33,13 @@ body {
 }
 
 .header {
-    background-color: #AA7D49; 
+    background-color: #AA7D49;
     padding: 20px;
     margin-bottom: 20px;
 }
 
 nav a {
-    color: #FFD59D; 
+    color: #FFD59D;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -48,8 +49,8 @@ nav a:hover {
 }
 
 .form {
-    background-color: #865D2A; 
-    color: #FFD59D; 
+    background-color: #865D2A;
+    color: #FFD59D;
     padding: 50px;
     border-radius: 10px;
     display: inline-block;
@@ -68,8 +69,8 @@ input[type="subject"] {
 }
 
 input[type="submit"] {
-    background-color: #AA7D49; 
-    color: #FFDBA2; 
+    background-color: #AA7D49;
+    color: #FFDBA2;
     cursor: pointer;
     width: 100px;
     padding: 10px;
@@ -102,13 +103,13 @@ input[type="submit"] {
     animation: slideInFromRight 3.5s ease forwards;
 }
 
-.home-sci{
+.home-sci {
     align-items: center;
     width: 80px;
     height: 80px;
 }
 
-.home-sci a{
+.home-sci a {
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -126,15 +127,15 @@ input[type="submit"] {
     transition: 0.4s;
 }
 
-.home-sci a:hover{
+.home-sci a:hover {
     color: var(--bg-color);
 }
- 
-.home-sci a::before{
+
+.home-sci a::before {
     content: '';
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     width: 0;
     height: 100%;
     background: #AA7D49;
@@ -142,11 +143,11 @@ input[type="submit"] {
     transition: .4s;
 }
 
-.home-sci a:hover::before{
+.home-sci a:hover::before {
     width: 100%;
 }
 
-#back-to-top > button{
+#back-to-top>button {
     background-color: #82412c;
     border-radius: 50%;
     border: solid 1px #341300;
@@ -154,18 +155,18 @@ input[type="submit"] {
     height: 50px;
 }
 
-#back-to-top:hover > button {
+#back-to-top:hover>button {
     border: solid 1px #341300;
     background-color: white;
-    
+
 }
 
-#back-to-top > button {
+#back-to-top>button {
     text-decoration: none;
     color: whitesmoke;
 }
 
-#back-to-top:hover > button {
+#back-to-top:hover>button {
     text-decoration: none;
     color: #341300;
 }
@@ -185,7 +186,7 @@ input[type="submit"] {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
- 
+
 .animated-button:hover {
     background-color: #82412c;
     transform: translateY(-3px);
@@ -196,6 +197,7 @@ input[type="submit"] {
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;

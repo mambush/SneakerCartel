@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,22 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Booking</title>
 </head>
+
 <body style="text-align: center;">
-    <h1 class="head"><a href="/index.html"><span>Sn</span>eaky<span>K</span>leen<i><sub><small><small><small>The Sneaker Cartel</small></small></small></sub></i></a></h1>
+    <h1 class="head"><a href="/index.html"><span>Sn</span>eaky<span>K</span>leen<i><sub><small><small><small>The Sneaker
+                                Cartel</small></small></small></sub></i></a></h1>
     <header class="header">
         <nav>
-            <a href="index.html"><button class="animated-button">Home</button></a> 
-            <a href="About.html"><button class="animated-button">About</button></a> 
-            <a href="Services.html"><button class="animated-button">Services</button></a> 
-            <a href="Booking.html"><button class="animated-button">Booking</button></a> 
-            <a href="Contact.html"><button class="animated-button">Contact</button></a> 
-        </nav> 
+            <a href="index.html"><button class="animated-button">Home</button></a>
+            <a href="About.html"><button class="animated-button">About</button></a>
+            <a href="Services.html"><button class="animated-button">Services</button></a>
+            <a href="Booking.html"><button class="animated-button">Booking</button></a>
+            <a href="Contact.html"><button class="animated-button">Contact</button></a>
+        </nav>
     </header>
 
     <a id="back-to-top" href="#top">
-        <button >
+        <button>
             &uarr;
         </button>
     </a>
@@ -51,15 +54,38 @@
             <br>
             <select name="shoe_type" id="shoe_type" required>
                 <option value="">Select...</option>
-                <option value="Canvas">Canvas</option>
-                <option value="Knit">Knit</option>
-                <option value="Leather">Leather</option>
-                <option value="Mesh">Mesh</option>
-                <option value="Rubber">Rubber</option>
-                <option value="Suede">Suede</option>
-                <option value="Synthetic">Synthetic</option>
+                <option value="100">Canvas (R100)</option>
+                <option value="120">Knit (R120)</option>
+                <option value="150">Leather(R150)</option>
+                <option value="80">Mesh(R80)</option>
+                <option value="60">Rubber(R60)</option>
+                <option value="180">Suede(R180)</option>
+                <option value="80">Synthetic(R80)</option>
+            </select>
+            <label for="serviceList">Type of Service:</label>
+            <br>
+            <select name="serviceList" id="serviceSelect" multiple>
+                <option value="">Select...</option>
+                <option value="50">Deep Cleaning (R50)</option>
+                <option value="100">Stain Removal (R100)</option>
+                <option value="60">Water Proofing (R60)</option>
             </select>
             <br>
+            <button onclick="addService()">Add Service</button>
+            <button onclick="removeService()">Remove Service</button>
+
+            <h2>Selected Services</h2>
+            <ul id="serviceList"></ul>
+
+            <br>
+            <label for="fullCost">Total Cost:</label>
+            <br>
+            <input type="text" id="fullCost" name="fullCost" readonly>
+            <br>
+            <br>
+
+
+
             <br>
             <label for="dropoff_date">Preferred Drop-off Date:</label>
             <br>
@@ -77,14 +103,17 @@
         <br>
         <p>Drop-off Address:</p>
         <br>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d827.5753902246475!2d18.46001556961473!3d-33.933371198325105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5db42c93a685%3A0xec815c21c6eaef71!2sCapaCiTi%20Tech%20Career%20Accelerator!5e0!3m2!1sen!2sza!4v1707829808041!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d827.5753902246475!2d18.46001556961473!3d-33.933371198325105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcc5db42c93a685%3A0xec815c21c6eaef71!2sCapaCiTi%20Tech%20Career%20Accelerator!5e0!3m2!1sen!2sza!4v1707829808041!5m2!1sen!2sza"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <br>
 
     <footer>
         <p><u>Interact with us and visit our socials:</u></p>
-    
+
         <br>
         <span class="home-sci">
             <a href="https://www.facebook.com/login.php/"><i class='bx bxl-facebook'></i></a>
@@ -95,5 +124,70 @@
             &copy; 2024 SneakyKleen. All rights are reserved.
         </p>
     </footer>
+    <script>
+        const services = [];
+        const fullCostInput = document.getElementById('fullCost');
+
+        function addService() {
+            const serviceSelect = document.getElementById('serviceSelect');
+            const selectedServices = Array.from(serviceSelect.selectedOptions).map(option => ({
+                name: option.text.split(' (')[0],
+                cost: parseInt(option.value),
+                checked: true
+            }));
+
+            selectedServices.forEach(service => {
+                const index = services.findIndex(s => s.name === service.name);
+                if (index === -1) {
+                    services.push(service);
+                } else {
+                    alert(`${service.name} is already added.`);
+                }
+            });
+
+            updateServiceList();
+            serviceSelect.selectedIndex = -1; // Clear the selection
+            calculateTotal();
+        }
+
+        function removeService() {
+            const checkedServices = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkedServices.forEach(service => {
+                const index = services.findIndex(s => s.name === service.nextElementSibling.textContent.trim().split(' (')[0]);
+                if (index !== -1) {
+                    services.splice(index, 1);
+                }
+            });
+            updateServiceList();
+            calculateTotal();
+        }
+
+        function updateServiceList() {
+            const serviceList = document.getElementById('serviceList');
+            serviceList.innerHTML = '';
+            services.forEach(service => {
+                const li = document.createElement('li');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = service.cost;
+                checkbox.checked = service.checked;
+                checkbox.addEventListener('change', () => service.checked = checkbox.checked);
+                const label = document.createElement('label');
+                label.textContent = `${service.name} (R${service.cost})`;
+                li.appendChild(checkbox);
+                li.appendChild(label);
+                serviceList.appendChild(li);
+            });
+        }
+
+        function calculateTotal() {
+            const shoeTypeCost = parseInt(document.getElementById('shoe_type').value) || 0;
+            const serviceCosts = services.filter(service => service.checked).map(service => service.cost);
+            const totalCost = shoeTypeCost + serviceCosts.reduce((sum, cost) => sum + cost, 0);
+            fullCostInput.value = totalCost ? `R${totalCost}` : ''; // Update the value of the input field
+        }
+    </script>
+
 </body>
+
 </html>
