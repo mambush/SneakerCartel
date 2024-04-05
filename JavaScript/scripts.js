@@ -34,4 +34,3 @@ carouselSlide.addEventListener('transitioned', () => {
     carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px';
   }
 });
-
