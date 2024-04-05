@@ -159,7 +159,8 @@ nav a:hover {
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-}
+    transform: scale(1);
+  }
   
 .serviceBox.expanded {
     width: 50rem;
@@ -167,8 +168,9 @@ nav a:hover {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1.1);
     z-index: 999;
+    transition: all 0.5s ease-in-out;
     background-color: #AA7D49;
 }
 
@@ -248,7 +250,9 @@ nav a:hover {
     transform: translateY(0);
 }
 
-
+.serviceBox.expanded .info li {
+    margin-right: 2.5rem;
+}
 /* @keyframes slideInFromTop {
     from {
         transform: translateY(-100%);
