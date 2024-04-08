@@ -146,67 +146,54 @@
     </footer>
 
     <script>
+      // Select all elements on the page with the class "serviceBox"
       const serviceBoxes = document.querySelectorAll(".serviceBox");
 
+      // Loop through each serviceBox element
       serviceBoxes.forEach((box) => {
+        // Add a click event listener to each serviceBox
         box.addEventListener("click", () => {
+          // Check if the clicked serviceBox has the "expanded" class
           if (box.classList.contains("expanded")) {
+            // If it does, remove the "expanded" class
             box.classList.remove("expanded");
-            box.querySelector(".info").innerHTML = `
-        <h2><strong>${box.dataset.service || ""}</strong></h2>
-        <!-- Add your original content here -->
-      `;
+            // Reset the content of the .info element to just display the service name
+            box.querySelector(".info").innerHTML = ` <h2><strong>${
+              box.dataset.service || ""
+            }</strong></h2> <!-- Add your original content here --> `;
           } else {
+            // If the clicked serviceBox does not have the "expanded" class
+            // Remove the "expanded" class from all other serviceBoxes
             serviceBoxes.forEach((b) => b.classList.remove("expanded"));
+            // Add the "expanded" class to the clicked serviceBox
             box.classList.add("expanded");
+            // Get the value of the data-service attribute from the clicked serviceBox
             const service = box.dataset.service;
+            // Declare a variable to store the new content for the expanded serviceBox
             let newContent;
-
+            // Use a switch statement to determine the new content based on the service
             switch (service) {
               case "Basic Clean":
-                newContent = `
-            <p style="text-align: center;">Basic Clean Service Details:</p>
-            <ul style="list-style: none;">
-              <li>Gentle cleaning of the shoes</li>
-              <li>Upper, midsole, and outsole cleaning</li>
-              <li>Our cheapest service option</li>
-            </ul>
-          `;
+                // If the service is "Basic Clean", set the new content to the provided HTML
+                newContent = ` <p style="text-align: center;">Basic Clean Service Details:</p> <ul style="list-style: none;"> <li>Gentle cleaning of the shoes</li> <li>Upper, midsole, and outsole cleaning</li> <li>Our cheapest service option</li> </ul> `;
                 break;
               case "Deep Clean":
-                newContent = `
-            <p>Deep Clean Service Details:</p>
-            <ul style="list-style: none;">
-              <li>Thorough cleaning of all parts</li>
-              <li>Includes hard-to-reach areas and stains</li>
-              <li>More comprehensive cleaning</li>
-            </ul>
-          `;
+                // If the service is "Deep Clean", set the new content to the provided HTML
+                newContent = ` <p>Deep Clean Service Details:</p> <ul style="list-style: none;"> <li>Thorough cleaning of all parts</li> <li>Includes hard-to-reach areas and stains</li> <li>More comprehensive cleaning</li> </ul> `;
                 break;
               case "Stain Removal":
-                newContent = `
-            <p>Stain Removal Service Details:</p>
-            <ul style="list-style: none;">
-              <li>Specialized in removing tough stains</li>
-              <li>Effective on dirt, mud, and grass stains</li>
-              <li>Restores sneakers to pristine condition</li>
-            </ul>
-          `;
+                // If the service is "Stain Removal", set the new content to the provided HTML
+                newContent = ` <p>Stain Removal Service Details:</p> <ul style="list-style: none;"> <li>Specialized in removing tough stains</li> <li>Effective on dirt, mud, and grass stains</li> <li>Restores sneakers to pristine condition</li> </ul> `;
                 break;
               case "Waterproofing":
-                newContent = `
-            <p>Waterproofing Service Details:</p>
-            <ul style="list-style: none;">
-              <li>Protects sneakers from water damage</li>
-              <li>Waterproofing treatment applied</li>
-              <li>Keeps sneakers looking fresh</li>
-            </ul>
-          `;
+                // If the service is "Waterproofing", set the new content to the provided HTML
+                newContent = ` <p>Waterproofing Service Details:</p> <ul style="list-style: none;"> <li>Protects sneakers from water damage</li> <li>Waterproofing treatment applied</li> <li>Keeps sneakers looking fresh</li> </ul> `;
                 break;
               default:
+                // If the service does not match any of the cases, set the new content to a default message
                 newContent = "<p>No additional details available.</p>";
             }
-
+            // Update the content of the .info element with the new content
             box.querySelector(".info").innerHTML = newContent;
           }
         });
