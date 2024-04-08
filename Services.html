@@ -160,7 +160,7 @@
             // Reset the content of the .info element to just display the service name
             box.querySelector(".info").innerHTML = ` <h2><strong>${
               box.dataset.service || ""
-            }</strong></h2> <!-- Add your original content here --> `;
+            }</strong></h2>`;
           } else {
             // If the clicked serviceBox does not have the "expanded" class
             // Remove the "expanded" class from all other serviceBoxes
@@ -174,20 +174,63 @@
             // Use a switch statement to determine the new content based on the service
             switch (service) {
               case "Basic Clean":
-                // If the service is "Basic Clean", set the new content to the provided HTML
-                newContent = ` <p style="text-align: center;">Basic Clean Service Details:</p> <ul style="list-style: none;"> <li>Gentle cleaning of the shoes</li> <li>Upper, midsole, and outsole cleaning</li> <li>Our cheapest service option</li> </ul> `;
+                newContent = `
+            <p style="text-align: center;">Basic Clean Service Details:</p>
+            <ul style="list-style: none;">
+              <li>Gentle cleaning of the shoes</li>
+              <li>Upper, midsole, and outsole cleaning</li>
+              <li>Our cheapest service option</li>
+            </ul>
+            <p>Prices:</p>
+            <ul style="list-style: none;">
+              <li>Leather: 150 ZAR</li>
+              <li>Suede: 180 ZAR</li>
+              <li>Knit: 120 ZAR</li>
+              <li>Canvas: 100 ZAR</li>
+              <li>Synthetic: 80 ZAR</li>
+              <li>Mesh: 80 ZAR</li>
+              <li>Rubber: 60 ZAR</li>
+            </ul>
+          `;
                 break;
               case "Deep Clean":
                 // If the service is "Deep Clean", set the new content to the provided HTML
-                newContent = ` <p>Deep Clean Service Details:</p> <ul style="list-style: none;"> <li>Thorough cleaning of all parts</li> <li>Includes hard-to-reach areas and stains</li> <li>More comprehensive cleaning</li> </ul> `;
+                newContent = ` <p>Deep Clean Service Details:</p> <ul style="list-style: none;"> <li>Thorough cleaning of all parts</li> <li>Includes hard-to-reach areas and stains</li> <li>More comprehensive cleaning</li> </ul> <p>Prices:</p>
+            <ul style="list-style: none;">
+              <li>Leather: 200 ZAR</li>
+              <li>Suede: 230 ZAR</li>
+              <li>Knit: 170 ZAR</li>
+              <li>Canvas: 150 ZAR</li>
+              <li>Synthetic: 130 ZAR</li>
+              <li>Mesh: 130 ZAR</li>
+              <li>Rubber: 110 ZAR</li>
+            </ul>`;
                 break;
               case "Stain Removal":
                 // If the service is "Stain Removal", set the new content to the provided HTML
-                newContent = ` <p>Stain Removal Service Details:</p> <ul style="list-style: none;"> <li>Specialized in removing tough stains</li> <li>Effective on dirt, mud, and grass stains</li> <li>Restores sneakers to pristine condition</li> </ul> `;
+                newContent = ` <p>Stain Removal Service Details:</p> <ul style="list-style: none;"> <li>Specialized in removing tough stains</li> <li>Effective on dirt, mud, and grass stains</li> <li>Restores sneakers to pristine condition</li> </ul> <p>Prices:</p>
+            <ul style="list-style: none;">
+              <li>Leather: 250 ZAR</li>
+              <li>Suede: 280 ZAR</li>
+              <li>Knit: 220 ZAR</li>
+              <li>Canvas: 200 ZAR</li>
+              <li>Synthetic: 180 ZAR</li>
+              <li>Mesh: 180 ZAR</li>
+              <li>Rubber: 160 ZAR</li>
+            </ul>`;
                 break;
               case "Waterproofing":
                 // If the service is "Waterproofing", set the new content to the provided HTML
-                newContent = ` <p>Waterproofing Service Details:</p> <ul style="list-style: none;"> <li>Protects sneakers from water damage</li> <li>Waterproofing treatment applied</li> <li>Keeps sneakers looking fresh</li> </ul> `;
+                newContent = ` <p>Waterproofing Service Details:</p> <ul style="list-style: none;"> <li>Protects sneakers from water damage</li> <li>Waterproofing treatment applied</li> <li>Keeps sneakers looking fresh</li> </ul> <p>Prices:</p>
+            <ul style="list-style: none;">
+              <li>Leather: 210 ZAR</li>
+              <li>Suede: 240 ZAR</li>
+              <li>Knit: 180 ZAR</li>
+              <li>Canvas: 160 ZAR</li>
+              <li>Synthetic: 140 ZAR</li>
+              <li>Mesh: 140 ZAR</li>
+              <li>Rubber: 120 ZAR</li>
+            </ul>`;
                 break;
               default:
                 // If the service does not match any of the cases, set the new content to a default message
