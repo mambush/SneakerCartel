@@ -222,8 +222,7 @@ nav a:hover {
     color: white;
 }
   
-.info h2,
-.info p {
+.info h2 {
     opacity: 0;
     transition: 0.4s 0.2s ease;
 }
@@ -244,22 +243,7 @@ nav a:hover {
     scale: 1;
     opacity: 1;
 }
-  
-.serviceBox:hover .info P {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .serviceBox.expanded .info li {
     margin-right: 2.5rem;
 }
-/* @keyframes slideInFromTop {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-} */
