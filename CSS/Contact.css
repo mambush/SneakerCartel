@@ -59,7 +59,7 @@ nav a:hover {
 
 input[type="text"],
 input[type="email"],
-input[type="tel"],
+input[type="phone"],
 input[type="subject"] {
     width: 100%;
     padding: 10px;
@@ -87,7 +87,7 @@ input[type="email"] {
     animation: slideInFromRight 1.5s ease forwards;
 }
 
-input[type="tel"] {
+input[type="phone"] {
     animation: slideInFromRight 2s ease forwards;
 }
 
