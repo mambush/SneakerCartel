@@ -172,49 +172,49 @@ figcaption {
     }
 }
 
-.social {
+.home-sci {
     align-items: center;
-
-}
-
-.social a {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .home-sci a {
     position: relative;
     display: inline-flex;
     justify-content: center;
-    /* border-spacing: 1rem; */
-    /* Remove this line */
+    border-spacing: 1rem;
     align-items: center;
     width: 50px;
     height: 50px;
     background: transparent;
-    border: .2rem solid #82412c;
+    border: 0.2rem solid #82412c;
     border-radius: 50%;
     font-size: 25px;
     color: var(--main-color);
     z-index: 1;
     overflow: hidden;
     transition: 0.4s;
-}
-
-.social a:hover {
+  }
+  
+  .home-sci a:hover {
     color: var(--bg-color);
-}
-
-.social a::before {
-    content: '';
+  }
+  
+  .home-sci a::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: #AA7D49;
-    z-index: -1;
-    transition: .4s;
-}
-
-.social a:hover::before {
     width: 0;
-}
+    height: 100%;
+    background: #aa7d49;
+    z-index: -1;
+    transition: 0.4s;
+  }
+  
+  .home-sci a:hover::before {
+    width: 100%;
+  }
 
 #back-to-top>button {
     background-color: #82412c;
