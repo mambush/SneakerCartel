@@ -56,19 +56,45 @@
       >
         <div class="form-group">
           <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName" required />
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+            placeholder="John"
+          />
+        </div>
+        <div class="form-group">
           <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" required />
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            required
+            placeholder="Doe"
+          />
         </div>
 
         <div class="form-group form-row">
           <div class="form-field">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="JohnDoe@gmail.com"
+            />
           </div>
           <div class="form-field">
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required />
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              placeholder="083-XXX-XXXX"
+            />
           </div>
         </div>
 
@@ -88,7 +114,7 @@
           </div>
           <div class="form-field">
             <label for="serviceList">Type of Service:</label>
-            <select name="serviceList" id="serviceSelect" multiple>
+            <select name="serviceList" id="serviceSelect">
               <option value="">Select...</option>
               <option value="50">Deep Cleaning (R50)</option>
               <option value="100">Stain Removal (R100)</option>
@@ -205,18 +231,9 @@
         serviceList.innerHTML = "";
         services.forEach((service) => {
           const li = document.createElement("li");
-          const checkbox = document.createElement("input");
-          checkbox.type = "checkbox";
-          checkbox.value = service.cost;
-          checkbox.checked = service.checked;
-          checkbox.addEventListener(
-            "change",
-            () => (service.checked = checkbox.checked)
-          );
-          const label = document.createElement("label");
-          label.textContent = `${service.name} (R${service.cost})`;
-          li.appendChild(checkbox);
-          li.appendChild(label);
+          const span = document.createElement("span");
+          span.textContent = `${service.name} (R${service.cost})`;
+          li.appendChild(span);
           serviceList.appendChild(li);
         });
       }
@@ -224,9 +241,7 @@
       function calculateTotal() {
         const shoeTypeCost =
           parseInt(document.getElementById("shoe_type").value) || 0;
-        const serviceCosts = services
-          .filter((service) => service.checked)
-          .map((service) => service.cost);
+        const serviceCosts = services.map((service) => service.cost);
         const totalCost =
           shoeTypeCost + serviceCosts.reduce((sum, cost) => sum + cost, 0);
         fullCostInput.value = totalCost ? `R${totalCost}` : ""; // Update the value of the input field

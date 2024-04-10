@@ -77,11 +77,20 @@ label {
   margin-bottom: 5px;
 }
 
+input {
+  text-align: center;
+}
+
 input[type="text"] {
   width: 75%;
   padding: 8px;
   border: none;
   border-radius: 5px;
+}
+
+li {
+  list-style: none;
+  margin-right: 3.3rem;
 }
 
 input[type="email"],
